@@ -38,6 +38,19 @@ ul {
 	overflow-y: scroll;
 }
 
+.center-this {
+	display:block;
+	margin: 0 auto;
+}
+
+body.comic-sans * {
+	font-family: "Comic Sans MS", cursive, sans-serif !important;
+}
+
+.card.unsized {
+	overflow-y: auto;
+}
+
 .card .card-content {
 	max-height: none !important;
 }
