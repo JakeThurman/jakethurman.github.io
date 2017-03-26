@@ -17,7 +17,8 @@
 			<div class="card-content">
 				<h2>An Essay on Font Usage...</h2>
 				<div> I wrote this for my "Cyber-Ethics" class. It is an awful piece of trash. I don't understand why I was given an A for this. For the best reading experience try reading in Comic Sans.</div>
-				<button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans</button>
+				<button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans*</button>
+				<i>* only available on windows</i>
 				
 				<script>
 					var isSet = false;
@@ -25,7 +26,7 @@
 					
 					bttn.addEventListener("click", function () {
 						isSet = !isSet;
-						bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans";
+						bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans*";
 						document.body.classList.toggle("comic-sans", isSet);
 					});
 				</script>
