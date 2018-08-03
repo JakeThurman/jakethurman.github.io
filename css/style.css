@@ -60,3 +60,11 @@ body.comic-sans * {
 .card .card-content p { 
 	margin-bottom: 15px;
 }
+
+#facebook-photo {
+    height: 56px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 4px;
+}
+
