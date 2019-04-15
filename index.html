@@ -1,189 +1,74 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
     <title>Jake Thurman</title>
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
-	<script src="./three.js"></script>
-	<script src="./snow.js"></script>
-</head>
-<body>
-    <nav class="transparent" role="navigation">
-		<div class="nav-wrapper container">
-			<a id="logo-container" href="#" class="brand-logo waves-effect waves-light">Jake Thurman</a>
-			<img id='facebook-photo' src="jake.jpg" />
-		</div>
-	</nav>
-    <main>
-		<div class="card">
-			<div class="card-content" id="highgear">
-				<span class="card-title grey-text text-darken-4">Work Experience</span>
-				<p>
-					I have worked as an intern software developer on <a href="https://www.highgear.com/">HighGear</a> since late 2013.
-					Working on HighGear I have gained direct experience in all of the following technologies:
-				</p>
-				<span class="card-title grey-text text-darken-1">Languages/Tools:</span>
-				<ul>
-					<li>C#/.NET</li>
-					<li>F#</li>
-					<li>SQL</li>
-					<li>JavaScript</li>
-					<li>TypeScript</li>
-					<li>HTML</li>
-					<li>git</li>
-					<li>webpack</li>
-					<li>npm</li>
-				</ul>
-				<span class="card-title grey-text text-darken-1">Frameworks:</span>
-				<ul>
-					<li>React</li>
-					<li>JQuery</li>
-					<li>JQuery UI</li>
-					<li>MomentJS</li>
-					<li>.NET MVC</li>
-				</ul>
-				<p>
-					I have directly worked on many variously sized features used now in production systems.
-					Most notably including 
-						A User Experience (UX) project that included user research and redesign of the product from the ground up, 
-						the refactoring of legacy Javascript, and C# code,
-						a major documentation re-write
-						and the modernization of many outdated UI elements 
-						among many other smaller projects.
-				</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-content">
-				<span class="card-title grey-text text-darken-4">Personal Projects</span>
-				<div id="pedalboard-project">
-					<span class="card-title grey-text text-darken-1">Pedalboard</span>
-					<p>
-						Another instance of my work is a guitar pedal board designer personal project. This goal of the project was to have an advanced, user friendly way to design, 
-						and compare pedal boards with the ability to report in various ways on the data. This included work such as chart rendering, data collection, and color averaging,
-						for this visual data analysis.
-						<a href="http://jakethurman.github.io/pedalboard/">You can use it for yourself here.</a>
-					</p>
-					<p>
-						In doing this I hoped mostly to gain strong experience in important technologies, libraries and concepts.
-						I had a plan written out before starting of all of the 
-						<abbr title="A user story is a tool used in Agile development to capture a description of a software feature from an end-user perspective.">User Stories</abbr> 
-						I wanted to complete as a part of this project.
-						Of course, as with any project some things changed and others were added, but in the end all of the original goals were accomplished.
-						<a href="https://github.com/JakeThurman/Pedalboard">You can view the readme and view the the project source on github here.</a>
-					</p>
-					<p>To summarize, after careful and detailed research of each, the full list of libraries I used in this project are as follows:</p>
-					<ul>
-						<li><a href="http://www.requirejs.org">RequireJS</a></li>
-						<li><a href="http://jquery.com/">JQuery</a></li>
-						<li><a href="https://jqueryui.com/">JQuery UI</a></li>
-						<li><a href="http://jasmine.github.io/">Jasmine</a></li>
-						<li><a href="http://www.chartjs.org">Chart.js</a></li>
-						<li><a href="http://momentjs.com/">MomentJS</a></li>
-						<li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
-					</ul>
-					<p>
-						In doing this project I effectively employed asynchronous script loading and dependency injection in javascript through the <a href="http://www.requirejs.org">RequireJS</a> library.
-						This helped to keep the code simple, scalable and easily changeable as I went. 
-						Since this time I now prefer more modern loading techniques such as webpack and using node-style require statements, but at the time this was still a new idea.
-						Using Require also helped me see when I had any unneeded or unused dependencies because they were all in one place at the top of the module.
-						Similarly, I often noticed myself getting annoyed at how some modules would be unfocused and doing work that wasn't their job which helped me to effectively manage the 
-						<abbr title="Object Oriented Programming">OOP</abbr> methodology of encapsulation. 
-					</p>
-					<p>
-						This use of dependency injection through <a href="https://www.requirejs.org">RequireJS</a> led to simpler testing through the <a href="http://jasmine.github.io/">Jasmine</a> testing library.
-						Because of the simple pattern I used to work effectively with <a href="http://www.requirejs.org">RequireJS</a>, the project was able to have near 100% unit test coverage, 
-						have little to no global variables or scope leak or interweaving dependencies.
-						The full unit test coverage allowed me to make risky changes to core modules without the risk because when something inevitably broke I didn't find out about it from a broken UI (user interface).
-						For example, I was able to quickly add complex change-logging functionality to the main "pedalBoardManager" module with only one single issue, a typo, which was caught by a unit tests immediately.
-					</p>
-					<p>
-						All in all, through this project I learned about javascript unit testing and how it's just as important as in any other language, 
-						how and when to consider scalability due to unneeded bulk (made easy by dependency injection), 
-						designing user interfaces from the ground up and working effectively with an end goal in mind.
-					</p>
-				</div>
-				<div id="rhymer">
-					<span class="card-title grey-text text-darken-1">Rhymer</span>
-					<p>
-						I've also produced a Rhyme generator which I used personally for writing songs for fun. 
-						It uses a simple API to generate the rhymes and is really just a basic text area with some cool optional rhyme components and settings around it. 
-						It uses all the same cool stuff as the guitar pedalboard project for the base since I used the same custom project template I developed for this project as well.
-						I personally still use this project to this day, years later.
-						<a href="jakethurman.github.io/rhymer">You can view this project here.</a>
-					</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="card">
-			<div class="card-content" id="schooling">
-				<span class="card-title grey-text text-darken-4">Education</span>
-				<p>
-					I am a 2019 graduate of <a href="https://www.gcc.edu">Grove City College</a> with a BS in Computer Science and a minor in Mathematics.
-					I spent my freshman year at <a href="https://www.frederick.edu" />Frederick Community College</a>.
-				</p>
-				<p>
-					<em>Recognition: </em>Deans List at FCC, Deans List at Grove City College
-				</p>
-				
-				<span class="card-title grey-text text-darken-4">Projects</span>
-				<div id="school-projects--fcc">
-					<p>
-						For a class at FCC called <span class="course-name">CIS226 - Game Scripting</span>, I developed <a href="https://github.com/JakeThurman/Take-It-Back">a game as a term project</a>.
-						The game is a basic side-scroller style game built in python on top of the <a href="http://www.pygame.org">pygame library</a>. The game includes enemies from spawners, 
-						weapons, one-way-walls, bonus-rings, and health just to name a few items. The player in this game is a stick figure running through one of many easily created worlds part of packages. These are all easily customizable as well. The whole game was built with the base purpose of expandability by anyone. It is one of the things I am most proud of in my computer-science college career.
-					</p>
-					<p>
-						For a class at FCC called <span class="course-name">CIS202 - Computer Science II</span>, I developed <a href="https://github.com/JakeThurman/Checkers">a checkers game as a term project</a>.
-						Besides simply being a checkers game, the game includes an optional AI player with Easy, Medium and Hard difficulty settings. It also shows statistical data about the game after the fact and stores high scores. The game was built using the JavaFX library added with Java 8
-					</p>
-				</div>
-			</div>
-		</div>
-	</main>
-	<footer class="page-footer grey darken-2">
-		<div class="container">
-			<div class="row">
-				<div class="col l9 s12">
-					<h5 class="white-text" id="contact">Quick Project Links</h5>
-					<ul>
-						<li>
-							<abbr title="Bash script to compute the number of overall lines added/removed by every contributer in a git repo".>
-								<a class="grey-text text-lighten-4" href="https://github.com/JakeThurman/git-lines">git-lines</a>
-							</abbr>
-						</li>
-						<li>
-							<abbr title="An simple pure javascript guitar-pedalboard designer with full recorded history!">
-								<a class="grey-text text-lighten-4" href="https://github.com/JakeThurman/Take-It-Back">Take-It-Back</a>
-							</abbr>
-						</li>
-						<li>
-							<abbr title="JavaFX Checkers game with AI-bot player.">
-								<a class="grey-text text-lighten-4" href="https://github.com/JakeThurman/Checkers">Checkers</a>
-							</abbr>
-						</li>
-						<li>
-							<abbr title="A songwritter's tool for quickly showing rhymes while writting a song.">
-								<a class="grey-text text-lighten-4" href="http://jakethurman.github.io/rhymer/">rhymer</a>
-							</abbr>
-						</li>
-					</ul>
-				</div>
-				<div class="col l3 s12">
-					<h5 class="white-text" id="contact">Contact Jake</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-4" href="https://twitter.com/Jake_Thurman">Twitter (@jake_thurman)</a></li>
-						<li><a class="grey-text text-lighten-4" href="https://www.linkedin.com/profile/view?id=374830300">LinkedIn</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				Jake Thurman
-			</div>
-		</div>
-	</footer>
-</body>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="normalize.css" type="text/css">
+    <link rel="stylesheet" href="style.css?nocache=648e38e67ffe16a2e7703d79957a2425" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">Jake Thurman</a></h1>
+      <a href="resume.pdf" class="header-right-button">R&#xE9;sum&#xE9;</a>
+    </header>
+
+    <div id="md-content">
+      <h2 id="workexperience">Work Experience</h2>
+<h3 id="highgearinc">HighGear, Inc.</h3>
+<p><em>JULY 2016 – PRESENT</em></p>
+<p>HighGear is a small company, which has allowed me to work alongside senior developers and gain personal mentorship with them all along the way. I have played an active role in research, design, planning and estimating, prioritizing with stakeholders, and implementation for numerous features. I have assisted support many times in a weekly rotation between developers and fixed numerous bugs both in correcting issues for customers and in discovering the root cause so that an issue should not reoccur. </p>
+<p>Languages/Tools:</p>
+<ul>
+<li>C#/.NET</li>
+<li>F#</li>
+<li>SQL</li>
+<li>JavaScript</li>
+<li>TypeScript</li>
+<li>HTML</li>
+<li>git</li>
+<li>webpack</li>
+<li>npm</li>
+</ul>
+<p>Frameworks:</p>
+<ul>
+<li>React</li>
+<li>JQuery</li>
+<li>JQuery UI</li>
+<li>MomentJS</li>
+<li>.NET MVC</li>
+</ul>
+<p>I have directly worked on many variously sized features used now in production systems. Most notably including A User Experience (UX) project that included user research and redesign of the product from the ground up, the refactoring of legacy Javascript, and C# code, a major documentation re-write and the modernization of many outdated UI elements among many other smaller projects.</p>
+<h2 id="personalprojects">Personal Projects</h2>
+<h3 id="pedalboard">Pedalboard</h3>
+<p>Another instance of my work is a guitar pedal board designer personal project. This goal of the project was to have an advanced, user friendly way to design, and compare pedal boards with the ability to report in various ways on the data. This included work such as chart rendering, data collection, and color averaging, for this visual data analysis. <a href="http://jakethurman.github.io/pedalboard/">You can use it for yourself here.</a></p>
+<p>In doing this I hoped mostly to gain strong experience in important technologies, libraries and concepts. I had a plan written out before starting of all of the User Stories I wanted to complete as a part of this project. Of course, as with any project some things changed and others were added, but in the end all of the original goals were accomplished. <a href="https://github.com/JakeThurman/Pedalboard">You can view the readme and view the the project source on github here.</a></p>
+<p>To summarize, after careful and detailed research of each, the full list of libraries I used in this project are as follows:</p>
+<ul>
+<li><a href="http://www.requirejs.org">RequireJS</a></li>
+<li><a href="http://jquery.com/">JQuery</a></li>
+<li><a href="https://jqueryui.com/">JQuery UI</a></li>
+<li><a href="http://jasmine.github.io/">Jasmine</a></li>
+<li><a href="http://www.chartjs.org">Chart.js</a></li>
+<li><a href="http://momentjs.com/">MomentJS</a></li>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+</ul>
+<p>In doing this project I effectively employed asynchronous script loading and dependency injection in javascript through the <a href="http://www.requirejs.org">RequireJS</a> library. This helped to keep the code simple, scalable and easily changeable as I went. Since this time I now prefer more modern loading techniques such as webpack and using node-style require statements, but at the time this was still a new idea. Using Require also helped me see when I had any unneeded or unused dependencies because they were all in one place at the top of the module. Similarly, I often noticed myself getting annoyed at how some modules would be unfocused and doing work that wasn't their job which helped me to effectively manage the OOP methodology of encapsulation.</p>
+<p>This use of dependency injection through <a href="https://www.requirejs.org">RequireJS</a> led to simpler testing through the <a href="http://jasmine.github.io/">Jasmine</a> testing library. Because of the simple pattern I used to work effectively with <a href="http://www.requirejs.org">RequireJS</a>, the project was able to have near 100% unit test coverage, have little to no global variables or scope leak or interweaving dependencies. The full unit test coverage allowed me to make risky changes to core modules without the risk because when something inevitably broke I didn't find out about it from a broken UI (user interface). For example, I was able to quickly add complex change-logging functionality to the main "pedalBoardManager" module with only one single issue, a typo, which was caught by a unit tests immediately.</p>
+<p>All in all, through this project I learned about javascript unit testing and how it's just as important as in any other language, how and when to consider scalability due to unneeded bulk (made easy by dependency injection), designing user interfaces from the ground up and working effectively with an end goal in mind.</p>
+<h3 id="rhymer">Rhymer</h3>
+<p>I've also produced a Rhyme generator which I used personally for writing songs for fun. It uses a simple API to generate the rhymes and is really just a basic text area with some cool optional rhyme components and settings around it. It uses all the same cool stuff as the guitar pedalboard project for the base since I used the same custom project template I developed for this project as well. I personally still use this project to this day, years later. <a href="jakethurman.github.io/rhymer">You can view this project here.</a></p>
+<h2 id="education">Education</h2>
+<p>I am a 2019 graduate of <a href="https://www.gcc.edu">Grove City College</a> with a BS in Computer Science and a minor in Mathematics. I spent my freshman year at <a href="https://www.frederick.edu">Frederick Community College</a>.</p>
+<p><em>Recognition:</em> Deans List at FCC, Deans List at Grove City College</p>
+<h2 id="projects">Projects</h2>
+<p>For a class at FCC called CIS226 - Game Scripting, I developed <a href="https://github.com/JakeThurman/Take-It-Back">a game as a term project</a>. The game is a basic side-scroller style game built in python on top of the <a href="http://www.pygame.org">pygame library</a>. The game includes enemies from spawners, weapons, one-way-walls, bonus-rings, and health just to name a few items. The player in this game is a stick figure running through one of many easily created worlds part of packages. These are all easily customizable as well. The whole game was built with the base purpose of expandability by anyone. It is one of the things I am most proud of in my computer-science college career.</p>
+<p>For a class at FCC called CIS202 - Computer Science II, I developed <a href="https://github.com/JakeThurman/Checkers">a checkers game as a term project</a>. Besides simply being a checkers game, the game includes an optional AI player with Easy, Medium and Hard difficulty settings. It also shows statistical data about the game after the fact and stores high scores. The game was built using the JavaFX library added with Java 8</p>
+    </div>
+  </body>
 </html>

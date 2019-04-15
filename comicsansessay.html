@@ -1,83 +1,42 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
     <title>Jake Thurman</title>
-	<link type="text/css" rel="stylesheet" href="./css/materialize.min.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link type="text/css" rel="stylesheet" href="./css/style.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="normalize.css" type="text/css">
+    <link rel="stylesheet" href="style.css?nocache=648e38e67ffe16a2e7703d79957a2425" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">Jake Thurman</a></h1>
+      <a href="resume.pdf" class="header-right-button">R&#xE9;sum&#xE9;</a>
+    </header>
 
-</head>
-<body>
-    <nav class="light-blue lighten-1" role="navigation">
-		<div class="nav-wrapper container">
-			<a id="logo-container" href="#" class="brand-logo waves-effect waves-light">Jake Thurman</a>
-		</div>
-	</nav>
-    <main>
-		<div class="card unsized">
-			<div class="card-content">
-				<h2>An Essay on Font Usage...</h2>
-				<div> I wrote this for my "Cyber-Ethics" class. It is an awful piece of trash. I don't understand why I was given an A for this. For the best reading experience try reading in Comic Sans.</div>
-				<button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans*</button>
-				<i>* only available on windows</i>
-				
-				<script>
-					var isSet = false;
-					var bttn = document.getElementById("font-change-button");
-					
-					bttn.addEventListener("click", function () {
-						isSet = !isSet;
-						bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans*";
-						document.body.classList.toggle("comic-sans", isSet);
-					});
-				</script>
-				
-				<br/>
-				<br/>
-				
-				<h4><center>Why Comic Sans Should Be Used by Professionals and Individuals Exclusively</center></h4>
-			
-				<p>Whether it be digital or print, for a presentation, website, advertisement, or anywhere in between, it is rarely argued that design is a crucial part of media. Visual design helps carry across intent, feel and professionalism. The use of a consistent font and size in textual documents helps convey a level of consistency across an organization. There is a commonly agreed upon point that certain fonts can be inappropriate for certain contexts. (i.e the “Wingdings” font for anything). However, it is debated what fonts are and are not appropriate for any given context. Arguably, the most mentioned of these often debated fonts is Comic Sans. It’s both accessible and memorable. Comic Sans should be the standard font in use by professionals and individuals alike for the numerous benefits of its design and of standardization.</p>
-				<p>Font constancy is a common practice yielding numerous benefits for an organization such as improved brand recognition, reduces need for design. The prestigious government defense contractor <em>Northrop Grumman</em>, requires the “Arial” font for all communications and documents so as to exemplify a level of consistency in the company’s work, through their consistent formatting choices. Many classroom environments require the use of the “Times New Roman” font for essays submitted, as its serifs are generally considered to improve readability on such long-form documents. The use of single font reduces the need of the reader to adjust to and interpret the meaning of such transitions therefore lowering the time needed to grade the aforementioned papers. With the clear benefits of using a consistent font in these individually distinct areas outlined, we can now analyze how using the “Comic Sans” font specifically completes this effect.</p>				
-				<p>Often the initial childish appearance of Comic Sans causes its benefits in a more professional environment to be overlooked. Its childish characteristics do make it the obvious candidate for media relating to children. Birthday invitations, a banner for a pre-school pancake event, would all be commonly accepted uses of the font. By extension of this, it is commonly said that Comic Sans is unprofessional because of its appearance. However, those saying this seem to be the vocal minority, according to a 2014 survey of British adults. The survey concluded that 65% of respondents said that the font was appropriate for an event poster, while only 19% said it was inappropriate. Even more compelling, more responded to the survey saying that Comic Sans was appropriate for an email/letter to a colleague than those who called it an inappropriate choice. (Jordan) Looking to the public, there is a clear consensus that Comic Sans is appropriate for general use.</p>
-				<p>The most commonly cited gain of Comic Sans is in its admirable accessibility, which deserves to be a required attribute in the fonts of modern professionals. The typeface is designed in such a way that it’s easier for dyslexic readers to read text written in it. The reasons for this are primarily related to it being sans-serifed with quickly recognizable letters along with other similar attributes affecting the fixation time of dyslexic readers. (Rello &amp; Baeza-Yates) For organizations working under any sort of government influence Section 508 compliance is a requirement, as it defines rules to help developers meet basic requirements allowing for blink users of technology to properly use technology. Why stop with blind users? Are other disabilities and handicaps (including dyslexia) not as important?</p>
-				<p>In review, the exclusive use of the Comic Sans font promotes consistency, conveys a sort of childish simplicity in a way that is generally considered acceptable for common uses, and overall promotes good practices as it pushes accessibility into the hands of individuals and professionals alike. As the world moves forward and trends come and go, there is constantly a sense of nostalgia for the past. Critics may say the days of the font are dire but the days of Comic Sans will likely never end as it inevitably stands as the forefather and inspiration to fonts yet to come. As an early contender to digital fonts in general and as one of the most easily recognizable fonts of this day, the logic follows that Comic Sans is a brilliant, acceptable choice for all sorts of media.</p>
-				
-				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Comic Sans is so Great (and so is @jake_thurman) WOW " data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-				<br/>
-				<br/>
-				<br/>
-				<h5><center>Bibliography</center></h5>
-<p>Rello, Luz, and Ricardo Baeza-Yates. "Good Fonts for Dyslexia" Dyslexia Help. University of Michigan, n.d. Web. 28 Jan. 2017.</p>
-<p>Jordan, William. "Actually, most people like Comic Sans." YouGov: What the world thinks. N.p., 31 Mar. 2014. Web. 31 Jan. 2017.</p>
+    <div id="md-content">
+      <p><button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans*</button></p>
+<p><em>* only available on windows</em></p>
+<script>
+    var isSet = false;
+    var bttn = document.getElementById("font-change-button");
 
-			</div>
-		</div>
-    </main>
-	<footer class="page-footer orange">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text" id="contact">Links</h5>
-					<ul>
-						<li>
-							<a class="grey-text text-lighten-4" href="https://jakethurman.github.io/">Jake Thurman (Home)</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col l6 s12">
-					<h5 class="white-text" id="contact">Please Follow Me</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-4" href="https://twitter.com/Jake_Thurman">Twitter (@jake_thurman)</a></li>
-						<li><a class="grey-text text-lighten-4" href="https://soundcloud.com/jakethurman/">Soudcloud (only if you like GOOD music)</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				Jake Thurman
-			</div>
-		</div>
-	</footer>
-</body>
+    bttn.addEventListener("click", function () {
+        isSet = !isSet;
+        bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans*";
+        document.body.classList.toggle("comic-sans", isSet);
+    });
+</script>
+<h4 id="whycomicsansshouldbeusedbyprofessionalsandindividualsexclusively">Why Comic Sans Should Be Used by Professionals and Individuals Exclusively</h4>
+<p>Whether it be digital or print, for a presentation, website, advertisement, or anywhere in between, it is rarely argued that design is a crucial part of media. Visual design helps carry across intent, feel and professionalism. The use of a consistent font and size in textual documents helps convey a level of consistency across an organization. There is a commonly agreed upon point that certain fonts can be inappropriate for certain contexts. (i.e the “Wingdings” font for anything). However, it is debated what fonts are and are not appropriate for any given context. Arguably, the most mentioned of these often debated fonts is Comic Sans. It’s both accessible and memorable. Comic Sans should be the standard font in use by professionals and individuals alike for the numerous benefits of its design and of standardization</p>
+<p>Font constancy is a common practice yielding numerous benefits for an organization such as improved brand recognition, reduces need for design. The prestigious government defense contractor <em>Northrop Grumman</em>, requires the “Arial” font for all communications and documents so as to exemplify a level of consistency in the company’s work, through their consistent formatting choices. Many classroom environments require the use of the “Times New Roman” font for essays submitted, as its serifs are generally considered to improve readability on such long-form documents. The use of single font reduces the need of the reader to adjust to and interpret the meaning of such transitions therefore lowering the time needed to grade the aforementioned papers. With the clear benefits of using a consistent font in these individually distinct areas outlined, we can now analyze how using the “Comic Sans” font specifically completes this effect.</p>
+<p>Often the initial childish appearance of Comic Sans causes its benefits in a more professional environment to be overlooked. Its childish characteristics do make it the obvious candidate for media relating to children. Birthday invitations, a banner for a pre-school pancake event, would all be commonly accepted uses of the font. By extension of this, it is commonly said that Comic Sans is unprofessional because of its appearance. However, those saying this seem to be the vocal minority, according to a 2014 survey of British adults. The survey concluded that 65% of respondents said that the font was appropriate for an event poster, while only 19% said it was inappropriate. Even more compelling, more responded to the survey saying that Comic Sans was appropriate for an email/letter to a colleague than those who called it an inappropriate choice. (Jordan) Looking to the public, there is a clear consensus that Comic Sans is appropriate for general use</p>
+<p>The most commonly cited gain of Comic Sans is in its admirable accessibility, which deserves to be a required attribute in the fonts of modern professionals. The typeface is designed in such a way that it’s easier for dyslexic readers to read text written in it. The reasons for this are primarily related to it being sans-serifed with quickly recognizable letters along with other similar attributes affecting the fixation time of dyslexic readers. (Rello &amp; Baeza-Yates) For organizations working under any sort of government influence Section 508 compliance is a requirement, as it defines rules to help developers meet basic requirements allowing for blink users of technology to properly use technology. Why stop with blind users? Are other disabilities and handicaps (including dyslexia) not as important?</p>
+<p>In review, the exclusive use of the Comic Sans font promotes consistency, conveys a sort of childish simplicity in a way that is generally considered acceptable for common uses, and overall promotes good practices as it pushes accessibility into the hands of individuals and professionals alike. As the world moves forward and trends come and go, there is constantly a sense of nostalgia for the past. Critics may say the days of the font are dire but the days of Comic Sans will likely never end as it inevitably stands as the forefather and inspiration to fonts yet to come. As an early contender to digital fonts in general and as one of the most easily recognizable fonts of this day, the logic follows that Comic Sans is a brilliant, acceptable choice for all sorts of media.</p>
+    </div>
+  </body>
 </html>

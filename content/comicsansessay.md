@@ -1,0 +1,26 @@
+<button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans*</button>
+
+_* only available on windows_
+				
+<script>
+	var isSet = false;
+	var bttn = document.getElementById("font-change-button");
+	
+	bttn.addEventListener("click", function () {
+		isSet = !isSet;
+		bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans*";
+		document.body.classList.toggle("comic-sans", isSet);
+	});
+</script>
+
+#### Why Comic Sans Should Be Used by Professionals and Individuals Exclusively
+
+Whether it be digital or print, for a presentation, website, advertisement, or anywhere in between, it is rarely argued that design is a crucial part of media. Visual design helps carry across intent, feel and professionalism. The use of a consistent font and size in textual documents helps convey a level of consistency across an organization. There is a commonly agreed upon point that certain fonts can be inappropriate for certain contexts. (i.e the “Wingdings” font for anything). However, it is debated what fonts are and are not appropriate for any given context. Arguably, the most mentioned of these often debated fonts is Comic Sans. It’s both accessible and memorable. Comic Sans should be the standard font in use by professionals and individuals alike for the numerous benefits of its design and of standardization
+
+Font constancy is a common practice yielding numerous benefits for an organization such as improved brand recognition, reduces need for design. The prestigious government defense contractor <em>Northrop Grumman</em>, requires the “Arial” font for all communications and documents so as to exemplify a level of consistency in the company’s work, through their consistent formatting choices. Many classroom environments require the use of the “Times New Roman” font for essays submitted, as its serifs are generally considered to improve readability on such long-form documents. The use of single font reduces the need of the reader to adjust to and interpret the meaning of such transitions therefore lowering the time needed to grade the aforementioned papers. With the clear benefits of using a consistent font in these individually distinct areas outlined, we can now analyze how using the “Comic Sans” font specifically completes this effect.
+
+Often the initial childish appearance of Comic Sans causes its benefits in a more professional environment to be overlooked. Its childish characteristics do make it the obvious candidate for media relating to children. Birthday invitations, a banner for a pre-school pancake event, would all be commonly accepted uses of the font. By extension of this, it is commonly said that Comic Sans is unprofessional because of its appearance. However, those saying this seem to be the vocal minority, according to a 2014 survey of British adults. The survey concluded that 65% of respondents said that the font was appropriate for an event poster, while only 19% said it was inappropriate. Even more compelling, more responded to the survey saying that Comic Sans was appropriate for an email/letter to a colleague than those who called it an inappropriate choice. (Jordan) Looking to the public, there is a clear consensus that Comic Sans is appropriate for general use
+
+The most commonly cited gain of Comic Sans is in its admirable accessibility, which deserves to be a required attribute in the fonts of modern professionals. The typeface is designed in such a way that it’s easier for dyslexic readers to read text written in it. The reasons for this are primarily related to it being sans-serifed with quickly recognizable letters along with other similar attributes affecting the fixation time of dyslexic readers. (Rello &amp; Baeza-Yates) For organizations working under any sort of government influence Section 508 compliance is a requirement, as it defines rules to help developers meet basic requirements allowing for blink users of technology to properly use technology. Why stop with blind users? Are other disabilities and handicaps (including dyslexia) not as important?
+
+In review, the exclusive use of the Comic Sans font promotes consistency, conveys a sort of childish simplicity in a way that is generally considered acceptable for common uses, and overall promotes good practices as it pushes accessibility into the hands of individuals and professionals alike. As the world moves forward and trends come and go, there is constantly a sense of nostalgia for the past. Critics may say the days of the font are dire but the days of Comic Sans will likely never end as it inevitably stands as the forefather and inspiration to fonts yet to come. As an early contender to digital fonts in general and as one of the most easily recognizable fonts of this day, the logic follows that Comic Sans is a brilliant, acceptable choice for all sorts of media.
