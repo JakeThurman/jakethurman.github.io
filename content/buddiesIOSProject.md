@@ -1,5 +1,7 @@
 ## Buddies 
 
+*Spring 2019*
+
 [Github Repo](https://github.com/jack-and-the-beans/buddies-ios)
 
 At Grove City, senior computer science students are guided through design of an full application during the fall semester, including extensive User Testing of prototypes created in Adobe XD.

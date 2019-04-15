@@ -14,14 +14,21 @@ Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing fo
 
 ### Projects
 
-Ungraduate Projects
+2019
 
-- *[Senior Year]* [Buddies](./site/buddiesIOSProject.html) (iOS)
-- *[Freshman Year]* [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
+- [Buddies](./site/buddiesIOSProject.html) (iOS)
 
-Personal Projects:
+2018
 
 - [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
+
+2016
+
+- [Checkers](./site/checkersProjects.html) (Python)
+- [SideScrollerGame](./site/sideScrollerGame.html) (JavaFX)
+
+2015
+
 - [Pedalboard Project](./site/pedalboardProject.html) (Web)
 - [Song Writing Helper](./site/rhymerProject.html) (Web)
 

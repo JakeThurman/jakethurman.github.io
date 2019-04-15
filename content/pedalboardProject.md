@@ -2,7 +2,7 @@
 
 *JULY 2015*
 
-[Live Demo](../pedalboard/) (Note: No longer maintained)
+[Live Demo](/pedalboard/) (Note: No longer maintained)
 
 [Github Repositoty](https://github.com/JakeThurman/Pedalboard)
 
