@@ -1,3 +1,51 @@
+
+## Projects
+
+School Projects
+
+- [Buddies](./site/buddiesIOSProject.html) (iOS)
+- [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
+
+
+Personal Projects:
+
+- [Wedding Site](https://www.melissaandjake.com)
+- [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
+- [Pedalboard Project](./site/pedalboardProject.html) (Web)
+- [Song Writing Helper](./site/rhymerProject.html) (Web)
+
+
+## Education
+
+I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics.
+I spent my freshman year at [Frederick Community College](https://www.frederick.edu).
+
+**Recognition:**
+- Deans List at Grove City College
+- Deans List at Frederick Community College
+
+## Proficiencies
+
+**Languages:**
+
+Javascript/Typescript, C#, F#, Swift, Java, SQL,
+Scala, Python, C++, C, Bash, PHP, SASS,
+HTML/CSS
+
+**Tools:**
+
+React, Redux, JQuery, .NET MVC, Node.js, git,
+jQuery, lodash, momentJS, webpack, ASP.NET
+WebForms, Firebase, CocoaPods, Adobe XD
+
+**Skills:**
+
+User Experience (UX), User Research, Software
+Planning & Estimation, accessibility (i.e., 508
+compliance), Unit Testing, Writing
+Documentation.
+
+
 ## Work Experience
 
 ### HighGear, Inc.
@@ -10,55 +58,6 @@ HighGear is a small company, which has allowed me to work alongside senior devel
 I have played an active role in research, design, planning and estimating, prioritizing with stakeholders, and implementation for numerous features.
 I have assisted support many times in a weekly rotation between developers and fixed numerous bugs both in correcting issues for customers and in discovering the root cause so that an issue should not reoccur. 
 
-Languages/Tools:
-
--   C#/.NET
--   F#
--   SQL
--   JavaScript
--   TypeScript
--   HTML
--   git
--   webpack
--   npm
-
-Frameworks:
-
--   React
--   JQuery
--   JQuery UI
--   MomentJS
--   .NET MVC
-
 I have directly worked on many variously sized features used now in production systems. Most notably including A User Experience (UX) project that included user research and redesign of the product from the ground up, the refactoring of legacy Javascript, and C# code, a major documentation re-write and the modernization of many outdated UI elements among many other smaller projects.
-
-
-
-## Education
-
-I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics.
-I spent my freshman year at [Frederick Community College](https://www.frederick.edu).
-
-**Recognition:**
-- Deans List at Grove City College
-- Deans List at Frederick Community College
-
-
-
-## Projects
-
-School Projects
-
-- [Buddies](./site/buddiesIOSProject.html) (iOS)
-- [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
-
-
-Personal Project Retrospectives:
-
-- [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
-- [Pedalboard Project](./site/pedalboardProject.html) (Web)
-- [Song Writing Helper](./site/rhymerProject.html) (Web)
-
-
 
 
