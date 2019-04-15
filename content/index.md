@@ -1,21 +1,32 @@
+## Hello
 
-## Projects
+Hi! I'm Jake Thurman, and I'm a software developer.
+I'm passionate about good, usable software that makes it into the hands of real people.
+I love designing simple interfaces for complex tasks.
+Going above and beyond the call to action to make something great makes me more excited than anything. 
 
-School Projects
+My hobbies include automating my life, Bible studies, and playing electic guitar.
 
-- [Buddies](./site/buddiesIOSProject.html) (iOS)
-- [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
+Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing for our [wedding](https://www.melissaandjake.com) this October.
 
+![Engagement Photo](./images/bridetobe.jpg)
+
+
+### Projects
+
+Ungraduate Projects
+
+- *[Senior Year]* [Buddies](./site/buddiesIOSProject.html) (iOS)
+- *[Freshman Year]* [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
 
 Personal Projects:
 
-- [Wedding Site](https://www.melissaandjake.com)
 - [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
 - [Pedalboard Project](./site/pedalboardProject.html) (Web)
 - [Song Writing Helper](./site/rhymerProject.html) (Web)
 
 
-## Education
+### Education
 
 I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics.
 I spent my freshman year at [Frederick Community College](https://www.frederick.edu).
@@ -24,7 +35,7 @@ I spent my freshman year at [Frederick Community College](https://www.frederick.
 - Deans List at Grove City College
 - Deans List at Frederick Community College
 
-## Proficiencies
+### Proficiencies
 
 **Languages:**
 
@@ -46,9 +57,9 @@ compliance), Unit Testing, Writing
 Documentation.
 
 
-## Work Experience
+### Work Experience
 
-### HighGear, Inc.
+#### HighGear, Inc.
 
 _**Software Development Eningeer**: MAY 2019 - PRESENT_
 
