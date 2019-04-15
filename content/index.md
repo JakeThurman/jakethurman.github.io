@@ -23,7 +23,7 @@ Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing fo
 
 2016
 
-- [Checkers](./site/checkersProjects.html) (Python)
+- [Checkers](./site/checkersProject.html) (Python)
 - [SideScrollerGame](./site/sideScrollerGame.html) (JavaFX)
 
 2015
