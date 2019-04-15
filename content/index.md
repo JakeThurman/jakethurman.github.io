@@ -6,7 +6,6 @@ I love designing simple interfaces for complex tasks.
 Going above and beyond the call to action to make something great makes me more excited than anything. 
 
 My hobbies include automating my life, Bible studies, and playing electic guitar.
-
 Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing for our [wedding](https://www.melissaandjake.com) this October.
 
 ![Engagement Photo](./images/bridetobe.jpg)
