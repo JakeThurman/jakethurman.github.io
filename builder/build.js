@@ -8,16 +8,16 @@ const outputPath = '../';
 const contentSubfolder = 'site/';
 const inputPath = '../content/';
 
-// Data
-const buildid = crypto.randomBytes(16).toString("hex")
-
 // File Helpers
 const contentOf = filename => fs.readFileSync(filename, 'utf8');
-const contentUsingBuildId = filename => contentOf(filename).replace("{{buildid}}", buildid);
 const writeFile = (filename, content) => fs.writeFile(filename, content, err => {
 	if(err) throw err;
 	console.log(`${filename} - COMPLETE`);
 }); 
+
+// Step done for caching purposes
+const stylesheetVersion = crypto.createHmac('sha1', 'not-very-secret').update(contentOf('../style.css')).digest('hex')
+const stylesheetPath = '/style.css?nocache=' + stylesheetVersion;
 
 // Markdown, handlebars helpers
 const mdConverter = new showdown.Converter();
@@ -28,7 +28,7 @@ const htmlWriter = (template) => (name, settings) => writeFile(name, template(se
 // Shortcut for data in specific 
 const generateFromTemplate = htmlWriter(templateOf("template.html"));
 const toOutputPath = path => outputPath + path.substring(0, path.length - 2) + "html";
-const settingsFromBody = body => ({ body, buildid });
+const settingsFromBody = body => ({ body, stylesheetPath });
 
 // Write the root file
 const rootFile = "index.md";
