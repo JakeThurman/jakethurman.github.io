@@ -43,7 +43,7 @@ h2 {
 }
 
 h2:after {
-	border-bottom: 1px solid #2f2f2f;
+	border-bottom: 1px solid #8e8e8e;
 	content: '';
 	width: 7rem;
 	display: block;

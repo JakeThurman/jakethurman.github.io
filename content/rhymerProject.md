@@ -3,7 +3,7 @@
 
 *DECEMBER 2015*
 
-[Live Demo](./rhymer/) *(Disclaimer: No longer maintained)*
+[Live Demo](/rhymer/) *(Disclaimer: No longer maintained)*
 
 [Github Repositoty](https://github.com/JakeThurman/Rhymer)
 

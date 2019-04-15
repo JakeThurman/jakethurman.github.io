@@ -49,14 +49,15 @@ I spent my freshman year at [Frederick Community College](https://www.frederick.
 
 School Projects
 
-- [Buddies](https://github.com/jack-and-the-beans/buddies-ios) (iOS)
-- [Freshman Year](./freshmanYearProjects.html) (Python/Java)
+- [Buddies](./site/buddiesIOSProject.html) (iOS)
+- [Freshman Year](./site/freshmanYearProjects.html) (Python/Java)
 
 
 Personal Project Retrospectives:
 
-- [Pedalboard Project](./pedalboardProject.html) (Web)
-- [Song Writing Helper](./rhymerProject.html) (Web)
+- [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
+- [Pedalboard Project](./site/pedalboardProject.html) (Web)
+- [Song Writing Helper](./site/rhymerProject.html) (Web)
 
 
 
