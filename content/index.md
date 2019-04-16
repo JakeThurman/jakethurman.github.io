@@ -5,7 +5,7 @@ I'm passionate about good, usable software that makes it into the hands of real 
 I love designing simple interfaces for complex tasks.
 Going above and beyond the call to action to make something great makes me more excited than anything. 
 
-My hobbies include automating my life, Bible studies, and playing electic guitar.
+My hobbies include automating my life, studying the Bible, playing electic guitar, and spending too much money on guitar gear.
 Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing for our [wedding](https://www.melissaandjake.com) this October.
 
 ![Engagement Photo](./images/bridetobe.jpg)
@@ -13,20 +13,20 @@ Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing fo
 
 ### Projects
 
-2019
+**2019**
 
 - [Buddies](./site/buddiesIOSProject.html) (iOS)
 
-2018
+**2018**
 
 - [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
 
-2016
+**2016**
 
 - [Checkers](./site/checkersProject.html) (Python)
 - [SideScrollerGame](./site/sideScrollerGame.html) (JavaFX)
 
-2015
+**2015**
 
 - [Pedalboard Project](./site/pedalboardProject.html) (Web)
 - [Song Writing Helper](./site/rhymerProject.html) (Web)
