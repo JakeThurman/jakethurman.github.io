@@ -1,45 +1,66 @@
-const crypto = require("crypto");
-const showdown = require('showdown');
-const handlebars = require('handlebars');
-const fs = require('fs');
+const path = require('path')
+const linkValidator = require('./linkValidator')
+const {
+	contentOf,
+	hashOfFile,
+	htmlOfMD,
+	templateOf,
+	htmlWriter,
+	getAllOfTypeInDir,
+} = require('./contentHelpers')
 
 // Parameters (todo: should probably be command line)
-const outputPath = '../';
-const contentSubfolder = 'site/';
-const inputPath = '../content/';
+const paths = {
+	output: '../',
+	contentSubfolder: 'site/',
+	input: '../content/',
+	templateFile: "template.html",
+	rootFile: 'index.md',
+}
 
-// File Helpers
-const contentOf = filename => fs.readFileSync(filename, 'utf8');
-const writeFile = (filename, content) => fs.writeFile(filename, content, err => {
-	if(err) throw err;
-	console.log(`${filename} - COMPLETE`);
-}); 
-
-// Step done for caching purposes
-const stylesheetVersion = crypto.createHmac('sha1', 'not-very-secret').update(contentOf('../style.css')).digest('hex')
-const stylesheetPath = '/style.css?nocache=' + stylesheetVersion;
-
-// Markdown, handlebars helpers
-const mdConverter = new showdown.Converter();
-const htmlOfMD = mdFile => mdConverter.makeHtml(contentOf(mdFile));
-const templateOf = filename => handlebars.compile(contentOf(filename))
-const htmlWriter = (template) => (name, settings) => writeFile(name, template(settings)); 
+// Handle browser caching of stylesheet
+const stylesheetPath = '/style.css?nocache=' + hashOfFile('../style.css')
 
 // Shortcut for data in specific 
-const generateFromTemplate = htmlWriter(templateOf("template.html"));
-const toOutputPath = path => outputPath + path.substring(0, path.length - 2) + "html";
-const settingsFromBody = body => ({ body, stylesheetPath });
+const generateFromTemplate = htmlWriter(templateOf(paths.templateFile))
+const withHtmlExtension = mdPath => mdPath.substring(0, mdPath.length - 2) + "html"
+const settingsFromBody = body => ({ body, stylesheetPath })
+
+// Appropriately localizes an output path
+function localizeLink(src, link) {
+	// If only one parameter is given, assume they are the same.
+	if (!link) link = src;
+
+	// If we are at the root, or asked to go to the root, do so.
+	if (src == paths.rootFile || link[0] == "/")
+		return path.join(paths.output, link)
+	
+	// Otherwise we should be in the content subfolder.
+	return path.join(paths.output, paths.contentSubfolder, link)
+}
+
+
+ // Grab all MD Files
+let allMD = getAllOfTypeInDir(paths.input, "md")
 
 // Write the root file
-const rootFile = "index.md";
-generateFromTemplate(toOutputPath(rootFile), settingsFromBody(htmlOfMD(inputPath + rootFile)));
+generateFromTemplate(
+	localizeLink(withHtmlExtension(paths.rootFile)), 
+	settingsFromBody(htmlOfMD(path.join(paths.input, paths.rootFile)))
+)
 
 // Render each of the pages to an appropriate file
-fs.readdirSync(inputPath)
-	.filter(name => name.toUpperCase().endsWith(".MD")) // Only take MD Files
-	.filter(name => name.toLowerCase() != rootFile) // Skip index page, handled seperately
-	.forEach(async (name) => {
-		var settings = settingsFromBody(htmlOfMD(inputPath + name));
-		var writeTo = toOutputPath(contentSubfolder + name);
-		generateFromTemplate(writeTo, settings);
-	});
+let outputPromises = allMD
+	.filter(name => name.toLowerCase() != paths.rootFile) // Skip index page, handled seperately
+	.map(async (name) => {
+		var settings = settingsFromBody(htmlOfMD(path.join(paths.input, name)));
+		var writeTo = localizeLink(withHtmlExtension(name));
+		await generateFromTemplate(writeTo, settings)
+	})
+
+// Check links of the files
+Promise.all(outputPromises).then(() => {
+	let success = linkValidator.validateAndPrint(allMD, paths.input, localizeLink);
+
+	console.log("Build " + (success ? "Succeeded" : "FAILED"));
+})
