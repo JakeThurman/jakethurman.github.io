@@ -58,7 +58,7 @@ WebForms, Firebase, CocoaPods, Adobe XD
 **Skills:**
 
 User Experience (UX), User Research, Software
-Planning & Estimation, accessibility (i.e., 508
+Planning & Estimation, Accessibility (i.e., 508
 compliance), Unit Testing, Writing
 Documentation.
 
