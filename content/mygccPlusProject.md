@@ -1,5 +1,7 @@
 ## MyGCC Plus
 
+*Fall 2018*
+
 [Github Repo](https://github.com/JakeThurman/mygcc-plus)
 
 MyGCC is the Grove City College site for corework, grades, and other campus activities.
