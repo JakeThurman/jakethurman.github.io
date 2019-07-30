@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const markdownLinkExtractor = require('markdown-link-extractor')
+const extractHref = require('extract-href');
 const { contentOf } = require('./contentHelpers')
 
 // Checks if a url is an absolute path
@@ -9,28 +10,40 @@ const isAbsoluteUrl = new RegExp('^(?:[a-z]+:)?//', 'i');
 // Helper to flatten nested lists
 const flatten = xs => xs.reduce((x,y) => x.concat(y), [])
 
-exports.validateAndPrint = function (mdFileNames, inputPath, localizeLink) {
-	let mdFileData = mdFileNames.map(source => ({
-		source,
-		links: markdownLinkExtractor(contentOf(path.join(inputPath, source)))
-	}))
+exports.getBadLinks = function (fileNames, inputPath, localizeLink) {
+	let linksFromEachSource = fileNames.map(sourceFilePath => {
+		// We call localize link becuase there are relative to the file they're from.
+		//  and we want to check if they are valid from their final location.
+		const getLinkData = linkedPath => ({ 
+			source: sourceFilePath, 
+			link: localizeLink(sourceFilePath, linkedPath) 
+		})
 
-	let sourcedLocalLinks = flatten(mdFileData.map( data => 
-		data.links
-			.filter(link => !isAbsoluteUrl.test(link))
-			.map(link => ({
-				// These are relative to the file so check if 
-				// they are valid from their actual location.
-				link: link,
-				source: data.source
-			}))
-	))
+		// Note that for now we're not validating any exernal links. Let's just assume they're valid.
+		return getAllLinkedPaths(inputPath, sourceFilePath)
+			.filter(linkedFilePath => !isAbsoluteUrl.test(linkedFilePath))
+			.map(getLinkData)
+	})
 
-	let missingFiles = sourcedLocalLinks
-		.map(data => localizeLink(data.source, data.link))
-		.filter(link => !fs.existsSync(link))
+	// Return all linked files that failed to be created!
+	return flatten(linksFromEachSource).filter(data => !fs.existsSync(data.link))
+}
 
-	missingFiles.forEach(data => console.log(`Bad link to "${data.link}" in file ${data.source}`))
+function getAllLinkedPaths(inputPath, filename) {
+	var content = contentOf(path.join(inputPath, filename))
 
-	return missingFiles.length == 0
+	return getLinkExtractor(filename)(content)
+}
+
+function getLinkExtractor(filename) {
+	let extension = path.extname(filename).toLowerCase()
+
+	switch (extension) {
+		case ".html":
+			return extractHref
+		case ".md":
+			return markdownLinkExtractor
+	}
+
+	throw new Error(`Unsupported extension of '${extension}' on file '${filename}' for link validation`);
 }

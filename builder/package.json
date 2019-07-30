@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
+    "extract-href": "^1.1.2",
     "handlebars": "^4.1.2",
     "markdown-link-extractor": "^1.2.0",
     "showdown": "^1.9.0"
