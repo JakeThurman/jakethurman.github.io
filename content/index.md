@@ -48,7 +48,7 @@ Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing fo
 
 ### Education
 
-I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics. 
+I am a 2019 graduate of [Grove City College](http://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics. 
 I graduated Cum Laude with 3.48 GPA and an MQPA of 3.72.
 I spent my freshman year at [Frederick Community College](https://www.frederick.edu).
 
