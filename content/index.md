@@ -93,6 +93,6 @@ HighGear is a small company, which has allowed me to work alongside senior devel
 I have played an active role in research, design, planning and estimating, prioritizing with stakeholders, and implementation for numerous features.
 I have assisted support many times in a weekly rotation between developers and fixed numerous bugs both in correcting issues for customers and in discovering the root cause so that an issue should not reoccur. 
 
-I have directly worked on many variously sized features used now in production systems. Most notably including A User Experience (UX) project that included user research and redesign of the product from the ground up, the refactoring of legacy Javascript, and C# code, a major documentation re-write and the modernization of many outdated UI elements among many other smaller projects.
+I have directly worked on many variously sized features used now in production systems. Most notably including multiple User Experience (UX) projects, including user research and a redesign of the product UI from the ground up. Other intership projects included the refactoring of legacy Javascript, and C# code, a major documentation re-write and the modernization of many outdated UI elements, and performance improvment work.
 
 
