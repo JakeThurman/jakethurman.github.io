@@ -45,6 +45,7 @@ h2 {
 
 h3 {
 	font-size: 2.5rem;
+	margin: 4rem 0 2rem 0;
 }
 
 h4 {
@@ -160,4 +161,17 @@ td:not(:first-child) {
 
 table td:first-child {
 	font-weight: bold;
+}
+
+.grid-children {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid-children > * {
+    flex-grow: 1;
+    margin: 10px;
+    background-color: #111;
+    padding: 0 19px;
 }

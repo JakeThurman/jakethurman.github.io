@@ -13,33 +13,51 @@ Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing fo
 
 ### Projects
 
+<div class="grid-children" data-markdown="1">
+<div data-markdown="1">
+
 **2019**
 
 - [Buddies](./site/buddiesIOSProject.html) (iOS)
 
+</div>
+<div data-markdown="1">
+
 **2018**
 
 - [MyGCC+ Plugin](./site/mygccPlusProject.html) (TamperMonkey Script)
+
+</div>
+<div data-markdown="1">
 
 **2016**
 
 - [Checkers](./site/checkersProject.html) (Python)
 - [SideScrollerGame](./site/sideScrollerGame.html) (JavaFX)
 
+</div>
+<div data-markdown="1">
+
 **2015**
 
 - [Pedalboard Project](./site/pedalboardProject.html) (Web)
 - [Song Writing Helper](./site/rhymerProject.html) (Web)
 
+</div>
+</div>
 
 ### Education
 
-I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics.
+I am a 2019 graduate of [Grove City College](https://www.gcc.edu) with a BS in Computer Science and a minor in Mathematics. 
+I graduated Cum Laude with 3.48 GPA and an MQPA of 3.72.
 I spent my freshman year at [Frederick Community College](https://www.frederick.edu).
 
-**Recognition:**
-- Deans List at Grove City College
-- Deans List at Frederick Community College
+**Notable Coursework:**
+
+Algorithms, Operating Systems, Computer Architecture, 
+Database Management, Networking, Machine Learning, 
+Artificial Intelligence, iOS Programming, Web Programming, 
+Computer Security, Parallel Programming, Functional Programming
 
 ### Proficiencies
 

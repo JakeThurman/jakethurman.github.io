@@ -1,5 +1,6 @@
 const path = require('path')
 const linkValidator = require('./linkValidator')
+const filenameValidator = require('./filenameValidator')
 const {
 	contentOf,
 	hashOfFile,
@@ -9,66 +10,124 @@ const {
 	getAllOfTypeInDir,
 } = require('./contentHelpers')
 
+// Queue for validation messages. 
+// These will be displayed when the build fails.
+var errorMessageQueue = [];
+
 // Parameters (todo: should probably be command line)
 const paths = {
 	output: '../',
 	contentSubfolder: 'site/',
 	input: '../content/',
 	templateFile: "template.html",
-	rootFile: 'index.md',
+	rootFiles: ['index.md'],
 }
 
 // Handle browser caching of stylesheet
-const stylesheetPath = '/style.css?nocache=' + hashOfFile('../style.css')
+const stylesheetPath = '/style.css?v=' + hashOfFile('../style.css')
 
 // Shortcut for data in specific 
-const getInputFilesOfType = extension => getAllOfTypeInDir(paths.input, extension).filter(name => name.toLowerCase() != paths.rootFile)
+const isRootFile = fileName => paths.rootFiles.some(root => root.toLowerCase() === fileName.toLowerCase());
+const getInputFilesOfType = extension => getAllOfTypeInDir(paths.input, extension).filter(name => !isRootFile(name))
 const generateFromTemplate = htmlWriter(templateOf(paths.templateFile))
-const withHtmlExtension = mdPath => mdPath.replace(".md", ".html")
+const withHtmlExtension = filePath => path.extname(filePath).toLowerCase() === ".md" ? filePath.replace(".md", ".html") : filePath
 const settingsFromBody = body => ({ body, stylesheetPath })
 
 // Appropriately localizes an output path
-function localizeLink(from, to) {
+function translateToOutputPath(from, to) {
 	// If only one parameter is given, assume they are the same.
 	if (!to) to = from;
 
+	// Translate md extension to md
+	to = withHtmlExtension(to)
+
 	// If we are at the root, or asked to go to the root, do so.
-	if (from == paths.rootFile || to[0] == "/")
+	if (isRootFile(from) || to[0] == "/")
 		return path.join(paths.output, to)
 	
 	// Otherwise we should be in the content subfolder.
 	return path.join(paths.output, paths.contentSubfolder, to)
 }
 
-// Write the root file
-generateFromTemplate(
-	localizeLink(withHtmlExtension(paths.rootFile)), 
-	settingsFromBody(htmlOfMD(path.join(paths.input, paths.rootFile)))
-)
+function preValidate(allFiles) {
+	var filenameValidationErrors = filenameValidator.getFilesWithOverlappingOutputPaths(allFiles, translateToOutputPath)
 
-// Render each of the pages to an appropriate file
-let allMD = getInputFilesOfType("md")
-let mdOutputPromises = allMD
-	.map(async (name) => {
-		var settings = settingsFromBody(htmlOfMD(path.join(paths.input, name)));
-		var writeTo = localizeLink(withHtmlExtension(name));
-		await generateFromTemplate(writeTo, settings)
-	})
-
-let allHtml = getInputFilesOfType("html")
-let htmlOutputPromises = allHtml
-	.map(async (name) => {
-		var settings = settingsFromBody(contentOf(path.join(paths.input, name)));
-		var writeTo = localizeLink(name);
-		await generateFromTemplate(writeTo, settings)
-	})
-
-// Check links of the files
-Promise.all(mdOutputPromises.concat(htmlOutputPromises)).then(() => {
-	// Perform link validation
-	let allFiles = [paths.rootFile].concat(allMD).concat(allHtml);
-	let missingLinkedFiles = linkValidator.getBadLinks(allFiles, paths.input, localizeLink);
+	if (filenameValidationErrors.length > 0) {
+		filenameValidationErrors.forEach(result => 
+			errorMessageQueue.push(`Multiple files would become '${result.outputPath}' on build. These are: ${JSON.stringify(result.inputPaths)}`))
 	
-	missingLinkedFiles.forEach(data => console.log(`Bad link to "${data.link}" in file ${data.source}`));
-	console.log("Build " + (missingLinkedFiles.length === 0 ? "Succeeded" : "FAILED"));
+		// Validation failed
+		return false;
+	}
+
+	// Validation succeeded
+	return true;
+}
+
+function postValidate(allFiles) {
+	let missingLinkedFiles = linkValidator.getBadLinks(allFiles, paths.input, translateToOutputPath);
+
+	if (missingLinkedFiles.length > 0) {
+		missingLinkedFiles.forEach(data => errorMessageQueue.push(`Bad link to "${data.link}" in file ${data.source}`))
+		
+		// Validation failed.
+		return false
+	}
+
+	// Validation succeeded
+	return true
+}
+
+function buildContent(allMD, allHtml, allRoot) {
+	// Write the root file
+	let rootFileOutputPromises = allRoot
+		.map(async (name) => {
+			// TODO: support html root files
+			var settings = settingsFromBody(htmlOfMD(path.join(paths.input, name)));
+			var writeTo = translateToOutputPath(name);
+			await generateFromTemplate(writeTo, settings)
+		})
+
+	let mdOutputPromises = allMD
+		.map(async (name) => {
+			var settings = settingsFromBody(htmlOfMD(path.join(paths.input, name)));
+			var writeTo = translateToOutputPath(name);
+			await generateFromTemplate(writeTo, settings)
+		})
+
+	let htmlOutputPromises = allHtml
+		.map(async (name) => {
+			var settings = settingsFromBody(contentOf(path.join(paths.input, name)));
+			var writeTo = translateToOutputPath(name);
+			await generateFromTemplate(writeTo, settings)
+		})
+
+	return Promise.all(rootFileOutputPromises.concat(mdOutputPromises).concat(htmlOutputPromises))
+}
+
+async function runBuild() {
+	let allMD = getInputFilesOfType("md")
+	let allHtml = getInputFilesOfType("html")
+	let allRoot = paths.rootFiles;
+	let allFiles = allRoot.concat(allMD).concat(allHtml);
+
+	if (!preValidate(allFiles))
+		return 
+
+	await buildContent(allMD, allHtml, allRoot)
+	
+	if (!postValidate(allFiles))
+		return 
+}
+
+console.log("\n-----------------------------\nStarting Build\n-----------------------------")
+runBuild().then(() => {
+	if (errorMessageQueue.length === 0) {
+		console.log("Build Succeeded")
+	} else {
+		console.log("\nBuild FAILED:")
+		errorMessageQueue.forEach(msg => console.log(" -", msg));
+
+		console.log("\n-----------------------------\nBuild FAILED")
+	}
 })
