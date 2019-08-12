@@ -166,7 +166,8 @@ table td:first-child {
 .grid-children {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
+	margin: -10px;
 }
 
 .grid-children > * {
