@@ -1,4 +1,4 @@
-### Checkers
+## Checkers
 
 *Fall 2016*
 

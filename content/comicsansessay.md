@@ -1,19 +1,17 @@
-<button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans*</button>
+## Why Comic Sans Should Be Used by Professionals and Individuals Exclusively
 
-_* only available on windows_
-				
+<center><button class="waves-effect waves-light btn blue center-this" id="font-change-button">Read in Comic Sans</button></center>
+
 <script>
 	var isSet = false;
 	var bttn = document.getElementById("font-change-button");
 	
 	bttn.addEventListener("click", function () {
 		isSet = !isSet;
-		bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans*";
-		document.body.classList.toggle("comic-sans", isSet);
+		bttn.textContent = isSet ? "I cannot handle such a beautiful font" : "Read in Comic Sans";
+		document.body.style.fontFamily = isSet ? "cursive" : "";
 	});
 </script>
-
-#### Why Comic Sans Should Be Used by Professionals and Individuals Exclusively
 
 Whether it be digital or print, for a presentation, website, advertisement, or anywhere in between, it is rarely argued that design is a crucial part of media. Visual design helps carry across intent, feel and professionalism. The use of a consistent font and size in textual documents helps convey a level of consistency across an organization. There is a commonly agreed upon point that certain fonts can be inappropriate for certain contexts. (i.e the “Wingdings” font for anything). However, it is debated what fonts are and are not appropriate for any given context. Arguably, the most mentioned of these often debated fonts is Comic Sans. It’s both accessible and memorable. Comic Sans should be the standard font in use by professionals and individuals alike for the numerous benefits of its design and of standardization
 
