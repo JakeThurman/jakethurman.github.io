@@ -32,6 +32,7 @@ const getInputFilesOfType = extension => getAllOfTypeInDir(paths.input, extensio
 const generateFromTemplate = htmlWriter(templateOf(paths.templateFile))
 const withHtmlExtension = filePath => path.extname(filePath).toLowerCase() === ".md" ? filePath.replace(".md", ".html") : filePath
 const settingsFromBody = body => ({ body, stylesheetPath })
+const hasBuildFailed = () => errorMessageQueue.length > 0;
 
 // Appropriately localizes an output path
 function translateToOutputPath(from, to) {
@@ -52,30 +53,15 @@ function translateToOutputPath(from, to) {
 function preValidate(allFiles) {
 	var filenameValidationErrors = filenameValidator.getFilesWithOverlappingOutputPaths(allFiles, translateToOutputPath)
 
-	if (filenameValidationErrors.length > 0) {
-		filenameValidationErrors.forEach(result => 
-			errorMessageQueue.push(`Multiple files would become '${result.outputPath}' on build. These are: ${JSON.stringify(result.inputPaths)}`))
-	
-		// Validation failed
-		return false;
-	}
-
-	// Validation succeeded
-	return true;
+	filenameValidationErrors.forEach(result => 
+		errorMessageQueue.push(`Multiple files would become '${result.outputPath}' on build. These are: ${JSON.stringify(result.inputPaths)}`))	
 }
 
 function postValidate(allFiles) {
 	let missingLinkedFiles = linkValidator.getBadLinks(allFiles, paths.input, translateToOutputPath);
 
-	if (missingLinkedFiles.length > 0) {
-		missingLinkedFiles.forEach(data => errorMessageQueue.push(`Bad link to "${data.link}" in file ${data.source}`))
-		
-		// Validation failed.
-		return false
-	}
-
-	// Validation succeeded
-	return true
+	missingLinkedFiles.forEach(data => 
+		errorMessageQueue.push(`Bad link to "${data.link}" in file ${data.source}`))
 }
 
 function buildContent(allMD, allHtml, allRoot) {
@@ -111,23 +97,27 @@ async function runBuild() {
 	let allRoot = paths.rootFiles;
 	let allFiles = allRoot.concat(allMD).concat(allHtml);
 
-	if (!preValidate(allFiles))
+	preValidate(allFiles);
+	
+	if (hasBuildFailed())
 		return 
 
 	await buildContent(allMD, allHtml, allRoot)
 	
-	if (!postValidate(allFiles))
+	if (hasBuildFailed())
 		return 
+
+	postValidate(allFiles);
 }
 
 console.log("\n-----------------------------\nStarting Build\n-----------------------------")
 runBuild().then(() => {
-	if (errorMessageQueue.length === 0) {
-		console.log("Build Succeeded")
-	} else {
+	if (hasBuildFailed()) {
 		console.log("\nBuild FAILED:")
-		errorMessageQueue.forEach(msg => console.log(" -", msg));
+		errorMessageQueue.forEach(msg => console.log(" -", msg))
 
 		console.log("\n-----------------------------\nBuild FAILED")
+	} else {
+		console.log("Build Succeeded")
 	}
 })
