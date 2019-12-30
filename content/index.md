@@ -5,10 +5,9 @@ I'm passionate about good, usable software that makes it into the hands of real 
 I love designing simple interfaces for complex tasks.
 Going above and beyond the call to action to make something great makes me more excited than anything. 
 
-My hobbies include automating my life, studying the Bible, playing electic guitar, and spending too much money on guitar gear.
-Currently, I also spend a lot of time with my bride-to-be, Melissa, preparing for our [wedding](https://www.melissaandjake.com) this October.
+My hobbies include automating my life, studying the Bible, playing electic guitar, and spending time with my new wife Melissa.
 
-![Engagement Photo](./images/bridetobe.jpg)
+![Photo of Jake and Melissa](./images/withmelissa.jpg)
 
 
 ### Projects
