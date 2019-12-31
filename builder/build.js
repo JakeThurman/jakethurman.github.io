@@ -10,27 +10,34 @@ const paths = {
 	rootFiles: ['index.md'],
 }
 
-// Shortcut for data in specific 
 const isRootFile = fileName => paths.rootFiles.some(root => root.toLowerCase() === fileName.toLowerCase());
-const withHtmlExtension = filePath => path.extname(filePath).toLowerCase() === ".md" ? filePath.replace(".md", ".html") : filePath
 
 // Appropriately localizes an output path
-function translateToOutputPath(from, to) {
+//  `relativeTo` is optional.
+function translateToOutputPath(relativeTo, inputPath) {
 	// Cut the path of of from.
-	from = path.basename(from)
+	//  they're all going to be in the input directory
+	relativeTo = path.basename(relativeTo)
 
-	// If only one parameter is given, assume they are the same.
-	if (!to) to = from;
+	// If only one parameter is given, we are translating the input path 
+	//  to an output path relative to itself.
+	//  (When a value for relativeTo is given, we are checking links for validity)
+	if (!inputPath) inputPath = relativeTo;
+	
+	// Output path is nearly inputPath, but we're going to mutate it
+	var outputPath = inputPath;
 
-	// Translate md extension to md
-	to = withHtmlExtension(to)
+	// Translate md extension to html
+	var ext = path.extname(inputPath);
+	if (ext.toLowerCase() === ".md")
+		outputPath = outputPath.replace(ext, ".html")
 
-	// If we are at the root, or asked to go to the root, do so.
-	if (isRootFile(from) || to[0] == "/")
-		return path.join(paths.output, to)
+	// If we are at the root, or the path is relative to root, do so.
+	if (isRootFile(relativeTo) || inputPath[0] == "/")
+		return path.join(paths.output, outputPath)
 	
 	// Otherwise we should be in the content subfolder.
-	return path.join(paths.output, paths.contentSubfolder, to)
+	return path.join(paths.output, paths.contentSubfolder, outputPath)
 }
 
 var sourceFiles = fs.readdirSync(paths.input)
