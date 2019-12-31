@@ -8,12 +8,18 @@ const mdConverter = new showdown.Converter()
 
 // File Helpers
 var contentOf = exports.contentOf = filename => fs.readFileSync(filename, 'utf8')
-var writeFile = exports.writeFile = (filename, content) => fs.writeFile(filename, content, err => { if(err) throw err })
 exports.hashOfFile = filename => crypto.createHmac('sha1', 'not-very-secret').update(contentOf(filename)).digest('hex')
+exports.writeFile = function (filename, content) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filename, content, err => { 
+            if(err) reject(err)
+            else resolve()
+        })
+    })
+}
 
 // Handlebars helpers
 exports.templateOf = filename => handlebars.compile(contentOf(filename))
-exports.htmlWriter = (template) => (name, settings) => writeFile(name, template(settings))
 
 // Load files, and compile to html
 exports.getCompiledContent = function (filePath) {

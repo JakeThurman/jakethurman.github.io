@@ -1,69 +1,89 @@
-const path = require('path')
 const linkValidator = require('./linkValidator')
 const filenameValidator = require('./filenameValidator')
 const {
 	hashOfFile,
 	getCompiledContent,
 	templateOf,
-	htmlWriter,
+	writeFile
 } = require('./contentHelpers')
 
 // Handle browser caching of stylesheet
 const stylesheetPath = '/style.css?v=' + hashOfFile('../style.css')
 
-const generateFromTemplate = htmlWriter(templateOf("template.html"))
-const settingsFromBody = body => ({ body, stylesheetPath })
-
 function preValidate(options) {
-    let errors = [];
+	const errors = [];
 
-	let filenameValidationErrors = filenameValidator.getFilesWithOverlappingOutputPaths(options.sourceFiles, options.translateToOutputPath)
-
+	const filenameValidationErrors = filenameValidator.getFilesWithOverlappingOutputPaths(options.sourceFiles, options.translateToOutputPath)
 	filenameValidationErrors.forEach(result => 
 		errors.push(`Multiple files would become '${result.outputPath}' on build. These are: ${JSON.stringify(result.inputPaths)}`))	
-    
-    return errors;
+	
+	return errors;
 }
 
 function postValidate(options) {
-    let errors = [];
+	const errors = [];
 
-	let missingLinkedFiles = linkValidator.getBadLinks(options.sourceFiles, options.translateToOutputPath);
-
+	const missingLinkedFiles = linkValidator.getBadLinks(options.sourceFiles, options.translateToOutputPath);
 	missingLinkedFiles.forEach(data => 
-        errors.push(`Bad link to "${data.link}" in file ${data.source}`))
-        
-    return errors;
+		errors.push(`Bad link to "${data.link}" in file ${data.source}`))
+		
+	return errors;
 }
 
-function buildContent(options) {
+async function buildContent(options) {
+	const errors = []
+	const template = templateOf("template.html")
+
 	const promises = options.sourceFiles.map(async (inputFilePath) => {
-        var content = getCompiledContent(inputFilePath)
-        var outputPath = options.translateToOutputPath(inputFilePath);
-        
-        await generateFromTemplate(outputPath, settingsFromBody(content))
-    })
-        
-    return Promise.all(promises);
+		try {
+			var outputPath = options.translateToOutputPath(inputFilePath)
+			
+			var body = getCompiledContent(inputFilePath)
+			var content = template({ stylesheetPath, body })
+
+			await writeFile(outputPath, content)
+		} catch (e) {
+			errors.push(e)
+		}
+	})
+		
+	await Promise.all(promises)
+	return errors
 }
 
 async function runBuild(options) {
-	var preValidateErrors = preValidate(options);
-	
-	if (preValidateErrors.length)
-		return preValidateErrors
+	const stages = [ // Each is a ((options) => (string | Error)[])
+		preValidate,
+		buildContent,
+		postValidate,
+	]
 
-	await buildContent(options)
-	
-    var postValidateErrors = postValidate(options);
-    return postValidateErrors;
+	while (stages.length) {
+		var stage = stages.shift()
+
+		try {
+			var errors = await stage(options)
+			
+			// Do not continue to the next stage if one failed
+			if (errors.length)
+				return errors
+		}
+		catch (e) {
+			return [e];
+		}
+	}
+
+	// No errors
+	return []
 }
 
 exports.runCompiler = function (options) {
 	console.log("\n-----------------------------\nStarting Build\n-----------------------------")
-	runBuild(options).then(errors => {
+	runBuild(options).then((errors/* (string | Error)[] */) => {
 		if (errors.length) {
 			console.log("\nBuild FAILED:")
+
+			// console.log handles showing stack trace with exceptions
 			errors.forEach(msg => console.log(" -", msg))
 
 			console.log("\n-----------------------------\nBuild FAILED")
