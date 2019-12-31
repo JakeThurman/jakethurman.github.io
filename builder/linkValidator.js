@@ -10,7 +10,7 @@ const isAbsoluteUrl = new RegExp('^(?:[a-z]+:)?//', 'i');
 // Helper to flatten nested lists
 const flatten = xs => xs.reduce((x,y) => x.concat(y), [])
 
-exports.getBadLinks = function (fileNames, inputPath, localizeLink) {
+exports.getBadLinks = function (fileNames, localizeLink) {
 	let linksFromEachSource = fileNames.map(sourceFilePath => {
 		// We call localize link becuase there are relative to the file they're from.
 		//  and we want to check if they are valid from their final location.
@@ -20,7 +20,7 @@ exports.getBadLinks = function (fileNames, inputPath, localizeLink) {
 		})
 
 		// Note that for now we're not validating any exernal links. Let's just assume they're valid.
-		return getAllLinkedPaths(inputPath, sourceFilePath)
+		return getAllLinkedPaths(sourceFilePath)
 			.filter(linkedFilePath => !isAbsoluteUrl.test(linkedFilePath))
 			.map(getLinkData)
 	})
@@ -29,14 +29,14 @@ exports.getBadLinks = function (fileNames, inputPath, localizeLink) {
 	return flatten(linksFromEachSource).filter(data => !fs.existsSync(data.link))
 }
 
-function getAllLinkedPaths(inputPath, filename) {
-	var content = contentOf(path.join(inputPath, filename))
+function getAllLinkedPaths(filePath) {
+	var content = contentOf(filePath)
 
-	return getLinkExtractor(filename)(content)
+	return getLinkExtractor(filePath)(content)
 }
 
-function getLinkExtractor(filename) {
-	let extension = path.extname(filename).toLowerCase()
+function getLinkExtractor(filePath) {
+	let extension = path.extname(filePath).toLowerCase()
 
 	switch (extension) {
 		case ".html":
