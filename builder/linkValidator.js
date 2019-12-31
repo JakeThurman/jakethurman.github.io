@@ -10,7 +10,7 @@ const isAbsoluteUrl = new RegExp('^(?:[a-z]+:)?//', 'i');
 // Helper to flatten nested lists
 const flatten = xs => xs.reduce((x,y) => x.concat(y), [])
 
-exports.getBadLinks = function (fileNames, localizeLink) {
+exports.getBadLinks = async function (fileNames, localizeLink) {
 	let linksFromEachSource = fileNames.map(sourceFilePath => {
 		// We call localize link becuase there are relative to the file they're from.
 		//  and we want to check if they are valid from their final location.
@@ -26,7 +26,15 @@ exports.getBadLinks = function (fileNames, localizeLink) {
 	})
 
 	// Return all linked files that failed to be created!
-	return flatten(linksFromEachSource).filter(data => !fs.existsSync(data.link))
+	var promises = flatten(linksFromEachSource).map(data => 
+		new Promise(resolve => {
+			fs.exists(data.link, exists => resolve({ data, exists }))
+		}))
+
+	var results = await Promise.all(promises)
+	
+	// Return all results where the file does not exist
+	return results.filter(r => !r.exists).map(r => r.data)
 }
 
 function getAllLinkedPaths(filePath) {

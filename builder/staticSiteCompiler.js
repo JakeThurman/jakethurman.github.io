@@ -20,10 +20,10 @@ function preValidate(options) {
 	return errors;
 }
 
-function postValidate(options) {
+async function postValidate(options) {
 	const errors = [];
 
-	const missingLinkedFiles = linkValidator.getBadLinks(options.sourceFiles, options.translateToOutputPath);
+	const missingLinkedFiles = await linkValidator.getBadLinks(options.sourceFiles, options.translateToOutputPath);
 	missingLinkedFiles.forEach(data => 
 		errors.push(`Bad link to "${data.link}" in file ${data.source}`))
 		
