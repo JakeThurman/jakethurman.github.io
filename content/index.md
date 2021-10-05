@@ -13,6 +13,14 @@ My hobbies include automating my life, studying the Bible, playing electic guita
 ### Projects
 
 <div class="grid-children" data-markdown="1">
+
+<div data-markdown="1">
+
+**2020**
+
+- [Workout Tracker](./site/workoutTracker.html) (React + Firebase)
+
+</div>
 <div data-markdown="1">
 
 **2019**

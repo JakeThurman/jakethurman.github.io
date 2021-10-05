@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jake Thurman</title>
+    <link rel="apple-touch-icon" sizes="180x180" href=/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/style.css?v=74439915d6a699f83a0a923b9f9fc5ae109651cf" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/index.html">Jake Thurman</a></h1>
+      <a href="/resume.pdf" class="header-right-button">R&#xE9;sum&#xE9;</a>
+    </header>
+
+    <div id="md-content">
+      <h2 id="workouttracker">Workout Tracker</h2>
+<p><em>Winter/Spring 2020</em></p>
+<p><a href="https://github.com/JakeThurman/jake-workouts">Github Repo</a> <em>Private. Let me know if you want access!</em>
+<a href="https://jake-workouts.web.app/">Live Application</a> - <em>No longer maintained.</em></p>
+<p>As I worked out, I wanted a simple tool to help me track my progress. I couldn't find any tool that tracked quite what I wanted to track at that time.</p>
+<p>I wrote out a couple of <a href="https://www.interaction-design.org/literature/topics/user-scenarios">User Scenarios</a> and condenced what felt like the key path into a single scenario through the application I wanted to build.</p>
+<blockquote>
+  <p>Joan want to use a workout machine, but can't remember how much weight she usually lifts on this machine.
+  Joan opens the app and types the name of the machine into the searchbar: "Leg Press". 
+  The activity comes up, and she quickly see the last few weights and reps she has done on the machine along with her Max, and 90th percentile for the past year.</p>
+</blockquote>
+<p>This is the application I built first, I made mockups and got going. 
+The application was a simple list of activities that you could create, and choose the attributes you wanted to log. Each activity in the list would show a button to log a new workout, and the stats from your last activity with a link to see the full history and statistics (i.e., Max, Min, 90th Percentile).</p>
+<p>Oh course, I continuously thought of more features that I kept a backlog of along with a list of known issues that I triaged as I saw fit -- After all, apart from my wife who I forced to use it too, I was the only user.</p>
+<p>Staying forcused on building the MVP of the app was difficult but rewarding, as it meant I was actually able to use the application in my own workouts as quickly as possible.</p>
+<h3 id="lateradditions">Later Additions</h3>
+<p>The most notable later addition to the feature was computed metrics.
+I allow you to add metrics to a workout that rather than being entered by the user are computed from a simple excel-like formula. 
+For example, on my "Running" activity, I have a metric for "Average Page (min)" of "Miles/Minutes(Duration)"</p>
+<p>Each formula is compiled into an Abstract Syntax Tree, tokenizing the formula and parsing it into a set of data structures that can be easily evaluated when a log entry is added. 
+I learned a lot about compiler design through this process, and how much work really goes into it.
+I initially tried to do everything by hand for this process, and tried many different levels of writing out language specifications, but eventually I landed on using an open source library for the tokenization of the formula, and only owned the translation to my AST from there.</p>
+    </div>
+  </body>
+</html>
