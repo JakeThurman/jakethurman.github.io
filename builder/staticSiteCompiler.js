@@ -13,6 +13,7 @@ const stylesheetPath = '/style.css?v=' + hashOfFile('../style.css')
 function preValidate(options) {
 	const errors = [];
 
+	console.log("Checking for files with overlapping output paths...");
 	const filenameValidationErrors = filenameValidator.getFilesWithOverlappingOutputPaths(options.sourceFiles, options.translateToOutputPath)
 	filenameValidationErrors.forEach(result => 
 		errors.push(`Multiple files would become '${result.outputPath}' on build. These are: ${JSON.stringify(result.inputPaths)}`))	
@@ -23,6 +24,7 @@ function preValidate(options) {
 async function postValidate(options) {
 	const errors = [];
 
+	console.log("Checking for bad links...");
 	const missingLinkedFiles = await linkValidator.getBadLinks(options.sourceFiles, options.translateToOutputPath);
 	missingLinkedFiles.forEach(data => 
 		errors.push(`Bad link to "${data.link}" in file ${data.source}`))
@@ -34,6 +36,7 @@ async function buildContent(options) {
 	const errors = []
 	const template = templateOf("template.html")
 
+	console.log(`Compiling ${options.sourceFiles.length} source files...`);
 	const promises = options.sourceFiles.map(async (inputFilePath) => {
 		try {
 			var outputPath = options.translateToOutputPath(inputFilePath)
@@ -53,15 +56,17 @@ async function buildContent(options) {
 
 async function runBuild(options) {
 	const stages = [ // Each is a ((options) => (string | Error)[])
-		preValidate,
-		buildContent,
-		postValidate,
+		["Pre Validate", preValidate],
+		["Build Content", buildContent],
+		["Post Validate", postValidate],
 	]
 
 	while (stages.length) {
-		var stage = stages.shift()
+		var [stageName, stage] = stages.shift()
 
 		try {
+			console.log("* Stage: " + stageName + " *");
+
 			var errors = await stage(options)
 			
 			// Do not continue to the next stage if one failed
