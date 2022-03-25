@@ -3,6 +3,7 @@
 *Winter/Spring 2020*
 
 [Github Repo](https://github.com/JakeThurman/jake-workouts) *Private. Let me know if you want access!*
+
 [Live Application](https://jake-workouts.web.app/) - *No longer maintained.*
 
 
