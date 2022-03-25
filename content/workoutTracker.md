@@ -25,8 +25,8 @@ Staying focused on building the MVP of the app was difficult but rewarding, as i
 ### Later Additions
 
 The most notable later addition to the feature was computed metrics.
-I allow you to add metrics to a workout that rather than being entered by the user. 
-These are computed from a simple excel-like formula. 
+I allow you to add metrics to a workout rather than everything needing to be entered by the user. 
+These are computed from a simple excel-like formula.
 For example, on my "Running" activity, I have a metric for "Average Page (min)" of "Miles/Minutes(Duration)"
 
 Each formula is compiled into an Abstract Syntax Tree, tokenizing the formula and parsing it into a set of data structures that can be easily evaluated when a log entry is added. 
