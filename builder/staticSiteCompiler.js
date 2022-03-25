@@ -87,6 +87,7 @@ exports.runCompiler = function (options) {
 			errors.forEach(msg => console.log(" -", msg))
 
 			console.log("\n-----------------------------\nBuild FAILED")
+			process.exitCode = 1
 		} else {
 			console.log("Build Succeeded")
 		}
