@@ -1,0 +1,22 @@
+name: Recompile
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Recompile:
+    name: Recompile
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: Checkout Commit
+      uses: actions/checkout@v2
+
+    - name: Compile
+      run: sh ./build
+
+    - name: Commit Result
+      run: git add -A && git commit -m "Recompile Static Site" && git push
+
