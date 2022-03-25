@@ -4,5 +4,5 @@
 set -e
 
 mkdir -p ../public
-npm install
+yarn install
 node build.js

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const markdownLinkExtractor = require('markdown-link-extractor')
-const extractHref = require('extract-href');
+const extractHref = require('get-hrefs')
 const { contentOf } = require('./contentHelpers')
 
 // Checks if a url is an absolute path
@@ -20,7 +20,8 @@ exports.getBadLinks = async function (fileNames, localizeLink) {
 		})
 
 		// Note that for now we're not validating any exernal links. Let's just assume they're valid.
-		return getAllLinkedPaths(sourceFilePath)
+		const paths = getAllLinkedPaths(sourceFilePath)
+		return paths
 			.filter(linkedFilePath => !isAbsoluteUrl.test(linkedFilePath))
 			.map(getLinkData)
 	})
@@ -50,7 +51,7 @@ function getLinkExtractor(filePath) {
 		case ".html":
 			return extractHref
 		case ".md":
-			return markdownLinkExtractor
+			return (content) => markdownLinkExtractor(content).links // we don't care about anchors
 	}
 
 	throw new Error(`Unsupported extension of '${extension}' on file '${filename}' for link validation`);
