@@ -19,9 +19,11 @@ jobs:
 
     - name: Commit Result
       run: |
-        git config --global user.name 'Recompiler Action'
-        git config --global user.email 'jakethurman@users.noreply.github.com'
-        git add -A 
-        git commit -m "Recompile Static Site"
-        git push
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'Recompiler Action'
+          git config --global user.email 'jakethurman@users.noreply.github.com'
+          git add -A 
+          git commit -m "Recompile Static Site"
+          git push
+        fi
 
