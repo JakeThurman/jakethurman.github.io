@@ -25,9 +25,13 @@ Staying focused on building the MVP of the app was difficult but rewarding, as i
 ### Later Additions
 
 The most notable later addition to the feature was computed metrics.
-I allow you to add metrics to a workout that rather than being entered by the user are computed from a simple excel-like formula. 
+I allow you to add metrics to a workout that rather than being entered by the user. 
+These are computed from a simple excel-like formula. 
 For example, on my "Running" activity, I have a metric for "Average Page (min)" of "Miles/Minutes(Duration)"
 
 Each formula is compiled into an Abstract Syntax Tree, tokenizing the formula and parsing it into a set of data structures that can be easily evaluated when a log entry is added. 
 I learned a lot about compiler design through this process, and how much work really goes into it.
-I initially tried to do everything by hand for this process, and tried many different levels of writing out language specifications, but eventually I landed on using an open source library for the tokenization of the formula, and only owned the translation to my AST from there.
+I initially tried to do everything by hand for this process, and tried many different levels of writing out language specifications, but eventually I landed on using an open source library for the tokenization of the formula, and only owned the translation to my AST from there, and the evaluation that operates on that.
+
+If I were to do this again I would have used `parsimmon` which has a much richer API, far less tied to excel's pattern.
+
