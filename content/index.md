@@ -1,11 +1,10 @@
 ## Hello
 
 Hi! I'm Jake Thurman, and I'm a software developer.
-I'm passionate about good, usable software that makes it into the hands of real people.
-I love designing simple interfaces for complex tasks.
-Going above and beyond the call to action to make something great makes me more excited than anything. 
+I'm passionate about good, usable software.
+I love designing simple interfaces for complex tasks, and solving interesting technical problems.
 
-My hobbies include automating my life, studying the Bible, playing electric guitar, and spending time with my wife Melissa.
+My hobbies include running, biking, studying the Bible, playing electric guitar, and spending time with my wife, Melissa.
 
 ![Photo of Jake and Melissa](./images/withmelissa.jpg)
 
@@ -70,31 +69,46 @@ Computer Security, Parallel Programming, Functional Programming
 
 **Languages:**
 
-Javascript/Typescript, C#, F#, Swift, Java, SQL,
-Scala, Python, C++, C, Bash, PHP, SASS,
-HTML/CSS
+TypeScript, C#, F#, Swift, Java, SQL, JavaScript
+Python, C++, C, Bash, PHP, SASS, HTML/CSS
 
 **Tools:**
 
-React, Redux, JQuery, .NET MVC, Node.js, git,
-jQuery, lodash, momentJS, webpack, ASP.NET
-WebForms, Firebase, CocoaPods, Adobe XD
+React, Redux, .NET MVC, Node.js, git, webpack, ASP.NET,
+SQL Server, WebForms, Firebase, Adobe XD
 
 **Skills:**
 
-User Experience (UX), User Research, Software
-Planning & Estimation, Accessibility (i.e., 508
-compliance), Unit Testing, Writing
-Documentation.
+User Experience (UX), User Research, Planning & Estimation, 
+Accessibility, Unit Testing, Documentation.
 
 
 ### Work Experience
 
-#### HighGear, Inc.
+#### HighGear
 
-_**Software Development Engineer**: MAY 2019 - PRESENT_
+Website: [https://www.highgear.com/](https://www.highgear.com/)
 
-_**Software Development Intern**: JULY 2014 – MAY 2019_
+HighGear is a tool for no-code Workflow management at scale.
+HighGear provides the tools to let business users manage their own workflow, without writing a single line of code.
+
+
+_**Senior Software Engineer**: FEB 2023 - PRESENT_ 
+
+As a senior engineer, software development is still my primary goal.
+I find it rewarding to look for a high-quality result, while also finding ways to cut unnecessary corners to deliver quickly.
+I help the team and individuals make decisions on business value, technical value, and where to draw the line between them.
+I mentor others as needed.
+I look to help others learn and improve, and not just solve immediate problems myself.
+
+
+_**Software Engineer**: MAY 2019 - FEB 2023_
+
+In this role, I was responsible for planning and implementing complex features, and for tackling difficult bugs and performance regressions. 
+I was able to work alongside others to design and build features with incomplete requirements, and deliver them on time.
+
+
+_**Software Intern**: JULY 2014 – MAY 2019_
 
 HighGear is a small company, which has allowed me to work alongside senior developers and gain personal mentorship with them all along the way.
 I have played an active role in research, design, planning and estimating, prioritizing with stakeholders, and implementation for numerous features.
