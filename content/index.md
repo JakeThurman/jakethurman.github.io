@@ -87,7 +87,7 @@ Accessibility, Unit Testing, Documentation.
 
 #### HighGear
 
-Website: [https://www.highgear.com/](https://www.highgear.com/)
+**Website**: [https://www.highgear.com/](https://www.highgear.com/)
 
 HighGear is a tool for no-code Workflow management at scale.
 HighGear provides the tools to let business users manage their own workflow, without writing a single line of code.
